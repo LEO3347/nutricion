@@ -1,0 +1,1653 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nutricion | Futuro de la salud y el bienestar</title>
+  <meta name="description" content="Experiencia digital premium para promocionar la carrera de Nutricion y su impacto en el DIF Tapachula.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      --emerald: #0E7C66;
+      --mint: #6EE7B7;
+      --sage: #A7C4A0;
+      --clinical: #F8FAF7;
+      --pearl: #E5E7EB;
+      --wellness: #3BA4F2;
+      --bio-blue: #12344D;
+      --charcoal: #1E293B;
+      --glass: rgba(255, 255, 255, 0.65);
+      --glass-strong: rgba(255, 255, 255, 0.82);
+      --line: rgba(255, 255, 255, 0.48);
+      --shadow: 0 10px 40px rgba(14, 124, 102, 0.08);
+      --shadow-hover: 0 24px 70px rgba(59, 164, 242, 0.16);
+      --radius: 8px;
+      --halo: 0 0 0 1px rgba(255,255,255,0.72), 0 28px 90px rgba(14, 124, 102, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--charcoal);
+      font-family: "Inter", "Manrope", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(110, 231, 183, 0.32), transparent 30vw),
+        radial-gradient(circle at 82% 6%, rgba(59, 164, 242, 0.22), transparent 32vw),
+        linear-gradient(140deg, #fbfffd 0%, #eefbf4 36%, #f4f9ff 72%, #f8faf7 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+      background-image:
+        linear-gradient(rgba(18, 52, 77, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 52, 77, 0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 84%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.55;
+      background:
+        linear-gradient(112deg, transparent 0 18%, rgba(110,231,183,0.1) 18.2% 18.5%, transparent 18.7% 100%),
+        linear-gradient(68deg, transparent 0 62%, rgba(59,164,242,0.1) 62.2% 62.45%, transparent 62.7% 100%);
+    }
+
+    .ambient {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .blob {
+      position: absolute;
+      width: 34vw;
+      aspect-ratio: 1;
+      border-radius: 44% 56% 62% 38% / 42% 37% 63% 58%;
+      filter: blur(18px);
+      opacity: 0.36;
+      animation: morph 16s ease-in-out infinite alternate;
+    }
+
+    .blob.one { left: -12vw; top: 8vh; background: rgba(110, 231, 183, 0.42); }
+    .blob.two { right: -11vw; top: 38vh; background: rgba(59, 164, 242, 0.28); animation-delay: -6s; }
+    .blob.three { left: 36vw; bottom: -20vh; background: rgba(167, 196, 160, 0.36); animation-delay: -10s; }
+
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(14, 124, 102, 0.24);
+      box-shadow: 0 0 18px rgba(110, 231, 183, 0.72);
+      animation: floatParticle 9s ease-in-out infinite;
+    }
+
+    .cursor-glow {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(110, 231, 183, 0.2), transparent 66%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 5;
+      mix-blend-mode: multiply;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      transform-origin: left;
+      transform: scaleX(0);
+      z-index: 80;
+      background: linear-gradient(90deg, var(--emerald), var(--mint), var(--wellness));
+      box-shadow: 0 0 22px rgba(110,231,183,0.8);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      width: min(1180px, calc(100% - 32px));
+      margin: 14px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 12px 10px 16px;
+      border: 1px solid rgba(255,255,255,0.55);
+      background: rgba(248, 250, 247, 0.72);
+      backdrop-filter: blur(22px);
+      box-shadow: 0 18px 56px rgba(18, 52, 77, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .nav::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(110,231,183,0.18), transparent 35%, rgba(59,164,242,0.14));
+      opacity: 0.72;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Sora", sans-serif;
+      font-weight: 800;
+      color: var(--bio-blue);
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: conic-gradient(from 160deg, var(--emerald), var(--mint), var(--wellness), var(--emerald));
+      box-shadow: 0 10px 26px rgba(14, 124, 102, 0.28);
+    }
+
+    .nav-links {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.86rem;
+      color: rgba(30, 41, 59, 0.78);
+    }
+
+    .nav > .btn {
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 8px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(110, 231, 183, 0.22);
+      color: var(--emerald);
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-weight: 800;
+      letter-spacing: 0;
+      color: white;
+      background: linear-gradient(120deg, var(--emerald), var(--wellness));
+      box-shadow: 0 18px 38px rgba(14, 124, 102, 0.22);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      isolation: isolate;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: -80% 20%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.44), transparent);
+      transform: rotate(18deg) translateX(-170%);
+      transition: transform 0.55s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 52px rgba(59, 164, 242, 0.26);
+    }
+
+    .btn:hover::before { transform: rotate(18deg) translateX(170%); }
+
+    .btn.secondary {
+      color: var(--bio-blue);
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      padding: 86px 0 60px;
+      display: grid;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 36px 0 auto;
+      height: 78%;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 34% 18%, rgba(255,255,255,0.86), transparent 34%),
+        radial-gradient(ellipse at 72% 48%, rgba(110,231,183,0.22), transparent 34%),
+        linear-gradient(180deg, transparent, rgba(255,255,255,0.34));
+      mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 82%, transparent);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.56);
+      background: rgba(255,255,255,0.58);
+      backdrop-filter: blur(16px);
+      color: var(--emerald);
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: "Plus Jakarta Sans", "Sora", sans-serif;
+      letter-spacing: 0;
+      color: var(--bio-blue);
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7.2vw, 7.35rem);
+      line-height: 0.91;
+      max-width: 860px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(120deg, var(--emerald), var(--wellness));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      margin: 24px 0 0;
+      color: rgba(30, 41, 59, 0.78);
+      font-size: clamp(1.03rem, 2vw, 1.2rem);
+      line-height: 1.75;
+    }
+
+    .bio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+      max-width: 680px;
+    }
+
+    .bio-tags span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0 11px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.58);
+      color: rgba(18,52,77,0.78);
+      background: rgba(255,255,255,0.58);
+      box-shadow: 0 10px 26px rgba(18,52,77,0.055);
+      backdrop-filter: blur(16px);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .bio-tags i {
+      width: 7px;
+      height: 7px;
+      border-radius: 99px;
+      background: var(--mint);
+      box-shadow: 0 0 12px rgba(110,231,183,0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 34px 0 0;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 36px;
+      max-width: 650px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(255,255,255,0.55);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), transparent 48%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .metric strong,
+    .metric span { position: relative; }
+
+    .metric strong {
+      display: block;
+      color: var(--emerald);
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(30, 41, 59, 0.66);
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+
+    .bio-orb {
+      position: relative;
+      min-height: 580px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .bio-orb::before {
+      content: "";
+      position: absolute;
+      width: min(620px, 100%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        repeating-conic-gradient(from 8deg, rgba(14,124,102,0.18) 0 2deg, transparent 2deg 12deg),
+        radial-gradient(circle, transparent 0 58%, rgba(255,255,255,0.78) 59% 60%, transparent 61%);
+      filter: blur(0.3px);
+      opacity: 0.42;
+      animation: rotate 70s linear infinite;
+    }
+
+    .bio-orb::after {
+      content: "";
+      position: absolute;
+      width: min(520px, 90%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.9), transparent 58%);
+      box-shadow: 0 0 90px rgba(110,231,183,0.24);
+      z-index: -1;
+    }
+
+    .orb-core {
+      width: min(430px, 88vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 48% 42%, rgba(255,255,255,0.94), rgba(248,250,247,0.74) 36%, rgba(110,231,183,0.26) 56%, rgba(59,164,242,0.18) 75%, transparent 76%),
+        conic-gradient(from 180deg, rgba(14,124,102,0.2), rgba(59,164,242,0.28), rgba(110,231,183,0.28), rgba(14,124,102,0.2));
+      border: 1px solid rgba(255,255,255,0.72);
+      box-shadow: inset 0 0 40px rgba(255,255,255,0.8), 0 32px 90px rgba(14, 124, 102, 0.18), var(--halo);
+      animation: pulseCore 4.8s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    .orb-core::before,
+    .orb-core::after {
+      content: "";
+      position: absolute;
+      inset: 13%;
+      border-radius: 50%;
+      border: 1px dashed rgba(14,124,102,0.38);
+      animation: rotate 28s linear infinite;
+    }
+
+    .orb-core::after {
+      inset: 25%;
+      border-color: rgba(59,164,242,0.34);
+      animation-duration: 18s;
+      animation-direction: reverse;
+    }
+
+    .dna {
+      position: absolute;
+      width: 72%;
+      height: 72%;
+      border-radius: 50%;
+      z-index: 2;
+      background:
+        radial-gradient(circle at 50% 8%, var(--emerald) 0 5px, transparent 6px),
+        radial-gradient(circle at 36% 22%, var(--wellness) 0 4px, transparent 5px),
+        radial-gradient(circle at 64% 22%, var(--mint) 0 4px, transparent 5px),
+        radial-gradient(circle at 28% 44%, var(--emerald) 0 5px, transparent 6px),
+        radial-gradient(circle at 72% 44%, var(--wellness) 0 5px, transparent 6px),
+        radial-gradient(circle at 38% 68%, var(--mint) 0 4px, transparent 5px),
+        radial-gradient(circle at 62% 68%, var(--emerald) 0 4px, transparent 5px),
+        radial-gradient(circle at 50% 88%, var(--wellness) 0 5px, transparent 6px);
+      filter: drop-shadow(0 0 12px rgba(110,231,183,0.5));
+      animation: rotate 22s linear infinite;
+    }
+
+    .dna svg {
+      width: 100%;
+      height: 100%;
+      opacity: 0.7;
+    }
+
+    .hud {
+      position: absolute;
+      min-width: 168px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.84), rgba(255,255,255,0.58));
+      border: 1px solid rgba(255,255,255,0.65);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-hover);
+      z-index: 4;
+      animation: hoverY 5.2s ease-in-out infinite;
+    }
+
+    .lab-panel {
+      position: absolute;
+      right: 5%;
+      bottom: 5%;
+      width: min(250px, 48%);
+      padding: 16px;
+      border-radius: 8px;
+      z-index: 3;
+      background: rgba(255,255,255,0.66);
+      border: 1px solid rgba(255,255,255,0.6);
+      backdrop-filter: blur(22px);
+      box-shadow: 0 24px 70px rgba(18,52,77,0.12);
+    }
+
+    .lab-panel h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+      color: rgba(18,52,77,0.82);
+      text-transform: uppercase;
+    }
+
+    .micro-chart {
+      height: 70px;
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(18,52,77,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18,52,77,0.05) 1px, transparent 1px);
+      background-size: 100% 18px, 26px 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .micro-chart::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 0 8%, var(--mint) 8% 10%, transparent 10% 24%, var(--wellness) 24% 26%, transparent 26% 44%, var(--emerald) 44% 47%, transparent 47% 66%, var(--wellness) 66% 69%, transparent 69%);
+      filter: drop-shadow(0 0 8px rgba(59,164,242,0.5));
+      animation: scanLine 3.2s ease-in-out infinite;
+    }
+
+    .lab-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 12px;
+      color: rgba(30,41,59,0.64);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .hud small {
+      display: block;
+      color: rgba(30,41,59,0.62);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+    }
+
+    .hud strong {
+      display: block;
+      margin-top: 5px;
+      color: var(--bio-blue);
+      font-family: "Sora", sans-serif;
+      font-size: 1.38rem;
+    }
+
+    .hud .bar {
+      display: block;
+      margin-top: 10px;
+      height: 7px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--mint), var(--wellness));
+      box-shadow: 0 0 18px rgba(110,231,183,0.46);
+    }
+
+    .hud.a { left: 2%; top: 18%; }
+    .hud.b { right: 0; top: 34%; animation-delay: -1.8s; }
+    .hud.c { left: 12%; bottom: 18%; animation-delay: -3s; }
+
+    section { padding: 112px 0; position: relative; }
+
+    section::before {
+      content: "";
+      position: absolute;
+      inset: 28px 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(14,124,102,0.16), rgba(59,164,242,0.14), transparent);
+      pointer-events: none;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(300px, 0.7fr);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-kicker {
+      margin: 0 0 12px;
+      color: var(--emerald);
+      font-weight: 900;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(2.1rem, 5vw, 4.8rem);
+      line-height: 1;
+    }
+
+    .lead {
+      margin: 0;
+      color: rgba(30, 41, 59, 0.72);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .panel,
+    .card,
+    .semester,
+    .photo-card {
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.82), rgba(255,255,255,0.54)),
+        var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+    }
+
+    .panel:hover,
+    .card:hover,
+    .semester:hover,
+    .photo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(110, 231, 183, 0.52);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.88fr) minmax(0, 1.12fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .panel {
+      padding: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 12%, rgba(110,231,183,0.2), transparent 28%),
+        linear-gradient(135deg, rgba(255,255,255,0.6), transparent 54%);
+      opacity: 0.72;
+    }
+
+    .panel > * { position: relative; }
+
+    .panel h3 {
+      font-size: 1.55rem;
+      margin-bottom: 14px;
+    }
+
+    .panel p {
+      margin: 0;
+      color: rgba(30,41,59,0.72);
+      line-height: 1.72;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .time-item {
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 14px;
+      padding: 17px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.54);
+      border: 1px solid rgba(255,255,255,0.52);
+    }
+
+    .time-item strong {
+      color: var(--emerald);
+      font-family: "Sora", sans-serif;
+    }
+
+    .time-item p {
+      margin: 0;
+      color: rgba(30,41,59,0.72);
+      line-height: 1.55;
+    }
+
+    .profile-grid,
+    .offer-grid,
+    .labor-grid,
+    .ethics-grid,
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 22px;
+      min-height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 18px;
+      right: 18px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(110,231,183,0.8), transparent);
+      opacity: 0.72;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -50% 20%;
+      height: 120px;
+      background: radial-gradient(circle, rgba(110,231,183,0.32), transparent 64%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::after { opacity: 1; }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: var(--emerald);
+      background: linear-gradient(145deg, rgba(110,231,183,0.24), rgba(59,164,242,0.12));
+      border: 1px solid rgba(255,255,255,0.65);
+      margin-bottom: 18px;
+      box-shadow: 0 12px 26px rgba(14,124,102,0.1), inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li {
+      color: rgba(30,41,59,0.72);
+      line-height: 1.62;
+      font-size: 0.94rem;
+    }
+
+    .card p { margin: 0; }
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .plan-shell {
+      padding: 18px;
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.74), rgba(255,255,255,0.38)),
+        rgba(255,255,255,0.42);
+      border: 1px solid rgba(255,255,255,0.58);
+      backdrop-filter: blur(22px);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plan-shell::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(14,124,102,0.08);
+      pointer-events: none;
+    }
+
+    .semester-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .semester {
+      padding: 18px;
+      position: relative;
+      min-height: 205px;
+      overflow: hidden;
+    }
+
+    .semester::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      right: -28px;
+      bottom: -32px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,164,242,0.16), transparent 68%);
+      transition: transform 0.32s ease, opacity 0.32s ease;
+    }
+
+    .semester:hover::after {
+      transform: scale(1.4);
+      opacity: 0.9;
+    }
+
+    .semester::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--emerald), var(--mint), var(--wellness));
+    }
+
+    .semester b {
+      display: inline-flex;
+      color: var(--emerald);
+      font-family: "Sora", sans-serif;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .semester h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .semester ul {
+      margin: 0;
+      padding-left: 17px;
+      color: rgba(30,41,59,0.68);
+      font-size: 0.86rem;
+      line-height: 1.52;
+    }
+
+    .labor-card {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .ethics-band {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .ethic {
+      padding: 22px;
+      border-radius: 8px;
+      background: linear-gradient(150deg, rgba(255,255,255,0.72), rgba(248,250,247,0.54));
+      border: 1px solid rgba(255,255,255,0.52);
+      box-shadow: var(--shadow);
+    }
+
+    .ethic h3 { font-size: 1rem; margin: 12px 0 8px; }
+    .ethic p { margin: 0; color: rgba(30,41,59,0.7); line-height: 1.58; font-size: 0.92rem; }
+
+    .institution-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .map-panel {
+      min-height: 500px;
+      overflow: hidden;
+      padding: 0;
+      position: relative;
+    }
+
+    .map-panel::before {
+      display: none;
+    }
+
+    .map-panel iframe,
+    .map-panel > img {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      border: 0;
+      object-fit: cover;
+      filter: saturate(0.96) contrast(1.04) brightness(1.02);
+    }
+
+    .map-overlay {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding: 18px;
+      border-radius: 8px;
+      background: rgba(248,250,247,0.78);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: 0 18px 46px rgba(18,52,77,0.12);
+    }
+
+    .experience-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0 0;
+    }
+
+    .experience-strip div {
+      min-height: 86px;
+      padding: 16px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.52);
+      border: 1px solid rgba(255,255,255,0.54);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .experience-strip strong {
+      color: var(--bio-blue);
+      font-family: "Sora", sans-serif;
+      font-size: 1.15rem;
+    }
+
+    .experience-strip span {
+      color: rgba(30,41,59,0.62);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .requirement-matrix {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .requirement-block {
+      padding: 22px;
+      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.78), rgba(255,255,255,0.48));
+      border: 1px solid rgba(255,255,255,0.58);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .requirement-block h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .requirement-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .requirement-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: rgba(18,52,77,0.82);
+      background: rgba(255,255,255,0.54);
+      border: 1px solid rgba(255,255,255,0.52);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .requirement-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      flex: 0 0 auto;
+      background: linear-gradient(135deg, var(--emerald), var(--wellness));
+      box-shadow: 0 0 12px rgba(110,231,183,0.75);
+    }
+
+    .map-overlay strong {
+      display: block;
+      color: var(--bio-blue);
+      font-family: "Sora", sans-serif;
+    }
+
+    .map-overlay span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(30,41,59,0.66);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .photo-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .photo-card {
+      overflow: hidden;
+      background: rgba(255,255,255,0.62);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 235px;
+      object-fit: cover;
+      filter: saturate(0.98) contrast(1.03) brightness(1.02);
+    }
+
+    .photo-card figcaption {
+      padding: 14px 16px;
+      color: rgba(30,41,59,0.7);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .values-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 16px;
+    }
+
+    .value {
+      padding: 16px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.58);
+      border: 1px solid rgba(255,255,255,0.55);
+      color: var(--bio-blue);
+      font-weight: 800;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .social-strip {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social-strip a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 8px;
+      color: var(--emerald);
+      font-weight: 800;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(255,255,255,0.58);
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .social-strip a:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .footer {
+      padding: 34px 0 42px;
+      color: rgba(30,41,59,0.62);
+      font-size: 0.92rem;
+    }
+
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      border-top: 1px solid rgba(18,52,77,0.1);
+      padding-top: 22px;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes morph {
+      0% { transform: translate3d(0,0,0) scale(1); border-radius: 44% 56% 62% 38% / 42% 37% 63% 58%; }
+      100% { transform: translate3d(2vw,-2vh,0) scale(1.08); border-radius: 60% 40% 42% 58% / 50% 58% 42% 50%; }
+    }
+
+    @keyframes floatParticle {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0.18; }
+      50% { transform: translateY(-34px) translateX(18px); opacity: 0.7; }
+    }
+
+    @keyframes rotate { to { transform: rotate(360deg); } }
+
+    @keyframes pulseCore {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.035); }
+    }
+
+    @keyframes hoverY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    @keyframes scanLine {
+      0%, 100% { transform: translateX(-18%) translateY(6px); opacity: 0.55; }
+      50% { transform: translateX(12%) translateY(-5px); opacity: 0.95; }
+    }
+
+    @media (max-width: 980px) {
+      .nav { align-items: flex-start; }
+      .nav-links { display: none; }
+      .hero { padding-top: 62px; }
+      .hero-grid,
+      .section-head,
+      .story-grid,
+      .institution-grid {
+        grid-template-columns: 1fr;
+      }
+      .bio-orb { min-height: 520px; }
+      .profile-grid,
+      .offer-grid,
+      .labor-grid,
+      .philosophy-grid,
+      .semester-grid,
+      .ethics-band {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .values-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .experience-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .requirement-matrix { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .nav { top: 8px; width: calc(100% - 20px); }
+      .brand span { display: none; }
+      .hero { min-height: auto; padding: 50px 0 40px; }
+      h1 { font-size: clamp(2.8rem, 16vw, 4.25rem); }
+      section { padding: 66px 0; }
+      .metric-row,
+      .profile-grid,
+      .offer-grid,
+      .labor-grid,
+      .semester-grid,
+      .ethics-band,
+      .philosophy-grid,
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      .bio-orb { min-height: 430px; }
+      .lab-panel { display: none; }
+      .hud { min-width: 136px; padding: 12px; }
+      .hud strong { font-size: 1.05rem; }
+      .hud.a { left: 0; top: 8%; }
+      .hud.b { right: 0; top: 42%; }
+      .hud.c { left: 4%; bottom: 4%; }
+      .time-item { grid-template-columns: 1fr; }
+      .footer .container { flex-direction: column; align-items: flex-start; }
+      .experience-strip { grid-template-columns: 1fr; }
+      .requirement-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="ambient" aria-hidden="true">
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
+  </div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <nav class="nav" aria-label="Navegacion principal">
+    <a class="brand" href="#inicio" aria-label="Inicio">
+      <span class="brand-mark"><i data-lucide="activity"></i></span>
+      <span>Nutricion BioWellness</span>
+    </a>
+    <div class="nav-links">
+      <a href="#historia">Historia</a>
+      <a href="#perfiles">Perfiles</a>
+      <a href="#oferta">Oferta</a>
+      <a href="#plan">Plan</a>
+      <a href="#campo">Campo laboral</a>
+      <a href="#etica">Codigo etico</a>
+      <a href="#dif">DIF</a>
+    </div>
+    <a class="btn" href="#plan"><i data-lucide="scan-heart"></i> Explorar carrera</a>
+  </nav>
+
+  <main id="inicio">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div data-reveal>
+          <p class="eyebrow"><i data-lucide="sparkles"></i> Healthcare design + nutricion aplicada</p>
+          <h1>El futuro de la <span class="gradient-text">salud</span> empieza con la nutricion.</h1>
+          <p class="hero-copy">Una carrera cientifica, humana y sostenible para transformar la calidad de vida desde hospitales, comunidades, investigacion, deporte, industria alimentaria e instituciones como el DIF Tapachula.</p>
+          <div class="bio-tags" aria-label="Temas principales">
+            <span><i></i> Historia</span>
+            <span><i></i> Perfil ingreso-egreso</span>
+            <span><i></i> Oferta educativa</span>
+            <span><i></i> Plan de estudios</span>
+            <span><i></i> Campo laboral</span>
+            <span><i></i> Codigo etico</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn" href="#campo"><i data-lucide="briefcase-medical"></i> Ver impacto laboral</a>
+            <a class="btn secondary" href="#dif"><i data-lucide="map-pin"></i> Conocer institucion</a>
+          </div>
+          <div class="metric-row" aria-label="Metricas de la carrera">
+            <div class="metric"><strong data-count="9">0</strong><span>semestres de formacion academica integral</span></div>
+            <div class="metric"><strong data-count="7">0</strong><span>areas laborales clave para crecer</span></div>
+            <div class="metric"><strong data-count="2026">0</strong><span>periodo de investigacion en DIF Tapachula</span></div>
+          </div>
+        </div>
+        <div class="bio-orb" data-reveal>
+          <div class="orb-core">
+            <div class="dna">
+              <svg viewBox="0 0 400 400" fill="none" aria-hidden="true">
+                <path d="M200 34C112 82 112 144 200 200C288 256 288 318 200 366" stroke="url(#g1)" stroke-width="4" stroke-linecap="round"/>
+                <path d="M200 34C288 82 288 144 200 200C112 256 112 318 200 366" stroke="url(#g2)" stroke-width="4" stroke-linecap="round"/>
+                <path d="M151 75H249M132 129H268M148 249H252M132 303H268" stroke="rgba(18,52,77,.22)" stroke-width="3" stroke-linecap="round"/>
+                <defs>
+                  <linearGradient id="g1" x1="104" y1="60" x2="293" y2="350"><stop stop-color="#0E7C66"/><stop offset="1" stop-color="#3BA4F2"/></linearGradient>
+                  <linearGradient id="g2" x1="294" y1="60" x2="107" y2="350"><stop stop-color="#6EE7B7"/><stop offset="1" stop-color="#0E7C66"/></linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="hud a"><small>metabolismo</small><strong>98%</strong><span class="bar" style="width:98%"></span></div>
+          <div class="hud b"><small>prevencion</small><strong>Salud+</strong><span class="bar" style="width:76%"></span></div>
+          <div class="hud c"><small>impacto social</small><strong>DIF</strong><span class="bar" style="width:88%"></span></div>
+          <div class="lab-panel" aria-hidden="true">
+            <h3>BioScan <i data-lucide="radar"></i></h3>
+            <div class="micro-chart"></div>
+            <div class="lab-row"><span>energia</span><strong>alta</strong></div>
+            <div class="lab-row"><span>bienestar</span><strong>activo</strong></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="requisitos">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="section-kicker">Contenido obligatorio</p>
+            <h2>Todo lo que debe llevar el proyecto.</h2>
+          </div>
+          <p class="lead">La pagina esta organizada para promocionar la carrera de Nutricion y presentar la institucion visitada, no para promocionar el documento.</p>
+        </div>
+        <div class="requirement-matrix" data-reveal>
+          <article class="requirement-block">
+            <h3><i data-lucide="graduation-cap"></i> Carrera</h3>
+            <ul class="requirement-list">
+              <li>Historia</li>
+              <li>Perfil de ingreso</li>
+              <li>Perfil de egreso</li>
+              <li>Oferta local</li>
+              <li>Oferta estatal</li>
+              <li>Oferta internacional</li>
+              <li>Plan de estudios</li>
+              <li>Campo laboral</li>
+              <li>Codigo etico</li>
+            </ul>
+          </article>
+          <article class="requirement-block">
+            <h3><i data-lucide="building-2"></i> Empresa o institucion</h3>
+            <ul class="requirement-list">
+              <li>Ubicacion con mapa</li>
+              <li>Fotografia</li>
+              <li>Filosofia empresarial</li>
+              <li>Mision</li>
+              <li>Vision</li>
+              <li>Valores</li>
+              <li>Historia</li>
+              <li>Pagina web</li>
+              <li>Redes sociales</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="historia">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="section-kicker">Historia de la nutricion</p>
+            <h2>De la dieta como cuidado al bienestar basado en ciencia.</h2>
+          </div>
+          <p class="lead">La nutricion evoluciono desde la observacion antigua de la alimentacion como medicina hasta una profesion esencial para prevenir enfermedades, mejorar habitos y elevar la calidad de vida.</p>
+        </div>
+        <div class="story-grid">
+          <article class="panel" data-reveal>
+            <h3>Una disciplina con raiz humana</h3>
+            <p>Desde civilizaciones griegas y romanas ya se reconocia la relacion entre alimentos y salud. Con los descubrimientos de los siglos XVIII y XIX sobre proteinas, grasas, carbohidratos, vitaminas y minerales, la nutricion empezo a explicar como el cuerpo obtiene energia, crece y se mantiene sano.</p>
+          </article>
+          <div class="timeline" data-reveal>
+            <div class="time-item"><strong>Antiguedad</strong><p>La dieta se entiende como parte del equilibrio corporal y la prevencion.</p></div>
+            <div class="time-item"><strong>Siglos XVIII-XIX</strong><p>La ciencia identifica nutrientes y procesos del cuerpo humano.</p></div>
+            <div class="time-item"><strong>Siglo XX</strong><p>La nutricion se consolida como ciencia y carrera profesional universitaria.</p></div>
+            <div class="time-item"><strong>Mexico actual</strong><p>El nutriologo responde a retos de obesidad, diabetes, desnutricion y salud publica.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfiles">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="section-kicker">Perfil de ingreso y egreso</p>
+            <h2>Mente cientifica, vocacion humana.</h2>
+          </div>
+          <p class="lead">La carrera combina biologia, quimica, analisis, educacion en salud, empatia y trabajo con personas reales en contextos clinicos y comunitarios.</p>
+        </div>
+        <div class="profile-grid">
+          <article class="card" data-reveal>
+            <div class="icon"><i data-lucide="microscope"></i></div>
+            <h3>Perfil de ingreso</h3>
+            <ul>
+              <li>Interes por salud, alimentacion y bienestar.</li>
+              <li>Gusto por biologia, quimica y ciencias naturales.</li>
+              <li>Responsabilidad, disciplina y capacidad de analisis.</li>
+            </ul>
+          </article>
+          <article class="card" data-reveal>
+            <div class="icon"><i data-lucide="heart-handshake"></i></div>
+            <h3>Cualidades humanas</h3>
+            <ul>
+              <li>Empatia para acompanar procesos de cambio.</li>
+              <li>Trabajo en equipo y comunicacion clara.</li>
+              <li>Disposicion para aprender con avances cientificos.</li>
+            </ul>
+          </article>
+          <article class="card" data-reveal>
+            <div class="icon"><i data-lucide="clipboard-check"></i></div>
+            <h3>Perfil de egreso</h3>
+            <ul>
+              <li>Evalua el estado nutricional de las personas.</li>
+              <li>Elabora planes de alimentacion adecuados.</li>
+              <li>Promueve prevencion, educacion y calidad de vida.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="oferta">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="section-kicker">Oferta educativa</p>
+            <h2>Opciones locales, estatales e internacionales.</h2>
+          </div>
+          <p class="lead">La nutricion puede estudiarse en instituciones publicas y privadas, con enfoques clinicos, comunitarios, deportivos, empresariales y de investigacion.</p>
+        </div>
+        <div class="offer-grid">
+          <article class="card" data-reveal>
+            <div class="icon"><i data-lucide="building-2"></i></div>
+            <h3>Nivel local</h3>
+            <p>En Tapachula y la region Soconusco, el estudiante puede iniciar su orientacion vocacional, comparar opciones cercanas, costos, requisitos y practicas vinculadas al sector salud.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="icon"><i data-lucide="landmark"></i></div>
+            <h3>Nivel estatal</h3>
+            <p>UNACH destaca en Chiapas con enfoque en salud comunitaria y atencion a poblaciones vulnerables, una opcion cercana para quienes buscan estudiar dentro del estado.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="icon"><i data-lucide="globe-2"></i></div>
+            <h3>Nivel internacional</h3>
+            <p>El campo se conecta con universidades, certificaciones, nutricion deportiva, biotecnologia alimentaria y salud publica global para ampliar oportunidades profesionales.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="plan">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="section-kicker">Plan de estudios</p>
+            <h2>Dashboard academico modular.</h2>
+          </div>
+          <p class="lead">Nueve semestres organizados como una ruta progresiva: fundamentos biologicos, evaluacion nutricia, dietoterapia, investigacion, innovacion alimentaria y servicio social.</p>
+        </div>
+        <div class="plan-shell" data-reveal>
+          <div class="semester-grid">
+            <article class="semester"><b>01</b><h3>Fundamentos</h3><ul><li>Comunicacion oral y escrita I</li><li>Estadistica</li><li>Higiene y salud</li><li>Microbiologia general</li><li>Morfologia y fisiologia general</li><li>Nutricion y dietetica basica</li></ul></article>
+            <article class="semester"><b>02</b><h3>Bioquimica base</h3><ul><li>Bases moleculares</li><li>Estadistica aplicada a alimentacion</li><li>Fisiologia aplicada a nutricion</li><li>Pedagogia y didactica</li><li>Salud publica</li><li>Tecnicas culinarias</li></ul></article>
+            <article class="semester"><b>03</b><h3>Alimentos y ciclo de vida</h3><ul><li>Bioquimica de los alimentos</li><li>Educacion en nutricion</li><li>Epidemiologia</li><li>Microbiologia de alimentos</li><li>Materno infantil</li><li>Preescolar a adulto mayor</li></ul></article>
+            <article class="semester"><b>04</b><h3>Evaluacion clinica</h3><ul><li>Administracion de alimentos</li><li>Analisis de alimentos</li><li>Dietologia</li><li>Evaluacion nutricia</li><li>Composicion corporal</li><li>Farmacologia en nutricion</li></ul></article>
+            <article class="semester"><b>05</b><h3>Comunidad e investigacion</h3><ul><li>Metodologia de investigacion</li><li>Diagnostico comunitario</li><li>Dietoterapia digestiva</li><li>Educacion nutriologica</li><li>Produccion animal y vegetal</li><li>Psicopatologia</li></ul></article>
+            <article class="semester"><b>06</b><h3>Sistemas metabolicos</h3><ul><li>Bioquimico clinico</li><li>Dietoterapia cardiovascular, renal y endocrina</li><li>Diseno de proyectos</li><li>Sindrome metabolico</li><li>Tecnologia de alimentos</li><li>Toxicologia</li></ul></article>
+            <article class="semester"><b>07</b><h3>Innovacion profesional</h3><ul><li>Evaluacion de programas nutricios</li><li>Innovacion de productos nutritivos</li><li>Nutricion aplicada</li><li>Paciente en fase critica</li><li>Salud y legislacion</li><li>Sociedad, economia y cultura de Chiapas</li></ul></article>
+            <article class="semester"><b>08</b><h3>Servicio social</h3><ul><li>Seminario de estadistica</li><li>Seminario de servicio social</li><li>Asesoria tutorada para titulacion</li><li>Aplicacion profesional en campo</li></ul></article>
+            <article class="semester"><b>09</b><h3>Titulacion</h3><ul><li>Investigacion para titulacion</li><li>Redaccion del documento recepcional</li><li>Integracion de servicio social</li><li>Cierre academico profesional</li></ul></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="campo">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="section-kicker">Campo laboral</p>
+            <h2>Impacto real en salud, comunidad e industria.</h2>
+          </div>
+          <p class="lead">En Tapachula y Chiapas, el nutriologo responde a desnutricion, obesidad, diabetes, hipertension e inseguridad alimentaria desde multiples frentes.</p>
+        </div>
+        <div class="labor-grid">
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="hospital"></i></div><div><h3>Hospitales</h3><p>Diagnostico nutricional, dietoterapia y soporte nutricio en instituciones de salud.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="shield-plus"></i></div><div><h3>Salud publica</h3><p>Campanas comunitarias para prevenir desnutricion, obesidad y enfermedades cronicas.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="hand-heart"></i></div><div><h3>DIF</h3><p>Programas de asistencia alimentaria, desayunos escolares y atencion a grupos vulnerables.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="flask-conical"></i></div><div><h3>Investigacion</h3><p>Generacion de datos sobre alimentacion, salud publica y habitos nutricionales.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="factory"></i></div><div><h3>Industria alimentaria</h3><p>Desarrollo de productos, etiquetado nutrimental, composicion y control de calidad.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="dumbbell"></i></div><div><h3>Nutricion deportiva</h3><p>Planes alimentarios para rendimiento, recuperacion y composicion corporal saludable.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="graduation-cap"></i></div><div><h3>Educacion</h3><p>Docencia, talleres, orientacion nutricional y formacion de nuevas generaciones.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="utensils"></i></div><div><h3>Servicios de alimentos</h3><p>Supervision de higiene, calidad y menus equilibrados en comedores y albergues.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="etica">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="section-kicker">Codigo etico</p>
+            <h2>Ciencia con confianza y dignidad.</h2>
+          </div>
+          <p class="lead">El ejercicio profesional exige evidencia, equidad, transparencia y respeto por la cultura alimentaria de cada comunidad.</p>
+        </div>
+        <div class="ethics-band">
+          <article class="ethic" data-reveal><div class="icon"><i data-lucide="badge-check"></i></div><h3>Evidencia cientifica</h3><p>Programas y recomendaciones basados en ciencia, no en modas o intereses personales.</p></article>
+          <article class="ethic" data-reveal><div class="icon"><i data-lucide="scale"></i></div><h3>Justicia y equidad</h3><p>Distribucion imparcial de recursos para quienes mas los necesitan.</p></article>
+          <article class="ethic" data-reveal><div class="icon"><i data-lucide="users-round"></i></div><h3>Respeto cultural</h3><p>Orientacion que escucha preferencias, tradiciones y decisiones informadas.</p></article>
+          <article class="ethic" data-reveal><div class="icon"><i data-lucide="eye"></i></div><h3>Transparencia</h3><p>Evitar conflictos de interes que comprometan la salud publica.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="dif">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="section-kicker">Empresa o institucion</p>
+            <h2>DIF Municipal Tapachula.</h2>
+          </div>
+          <p class="lead">La investigacion se enfoca en el Sistema para el Desarrollo Integral de la Familia, una institucion de asistencia social donde la nutricion tiene impacto directo en ninas, ninos, personas mayores, personas con discapacidad y familias vulnerables.</p>
+        </div>
+        <div class="institution-grid">
+          <article class="panel map-panel" data-reveal>
+            <img src="assets/pdf-page-45-1.jpg" alt="Mapa de ubicacion del DIF Municipal Tapachula">
+            <div class="map-overlay">
+              <strong>Sexta Avenida Norte y 19 Calle Poniente S/N</strong>
+              <span>Colonia Los Naranjos, sector Centro, C.P. 30700, Tapachula de Cordova y Ordonez, Chiapas. Coordenadas aproximadas: 14.91645, -92.26072.</span>
+            </div>
+          </article>
+          <div class="photo-stack" data-reveal>
+            <figure class="photo-card">
+              <img src="assets/pdf-page-65-1.jpg" alt="Estudiantes en instalaciones del DIF Tapachula">
+              <figcaption>Fotografia de visita de campo a instalaciones del DIF, incluida en los anexos del documento.</figcaption>
+            </figure>
+            <figure class="photo-card">
+              <img src="assets/pdf-page-65-2.jpg" alt="Entrevista con personal del area de nutricion">
+              <figcaption>Entrevista al personal del area de nutricion para conocer funciones y experiencia profesional.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="experience-strip" data-reveal>
+          <div><span>Ubicacion</span><strong>Tapachula</strong></div>
+          <div><span>Mapa</span><strong>Incluido</strong></div>
+          <div><span>Fotografia</span><strong>Visita DIF</strong></div>
+          <div><span>Web y redes</span><strong>Activas</strong></div>
+        </div>
+
+        <div class="section-head" style="margin-top:64px" data-reveal>
+          <div>
+            <p class="section-kicker">Filosofia empresarial</p>
+            <h2>Mision, vision, valores e historia institucional.</h2>
+          </div>
+          <p class="lead">El DIF orienta su labor hacia la asistencia social, la proteccion de derechos y el desarrollo integral de familias en situacion de vulnerabilidad.</p>
+        </div>
+
+        <div class="philosophy-grid">
+          <article class="card" data-reveal><div class="icon"><i data-lucide="target"></i></div><h3>Mision</h3><p>Conducir politicas publicas de asistencia social, protegiendo derechos de ninas, ninos, adolescentes, personas adultas mayores, personas con discapacidad y familias vulnerables.</p></article>
+          <article class="card" data-reveal><div class="icon"><i data-lucide="telescope"></i></div><h3>Vision</h3><p>Ser un organismo rector reconocido por eficacia, transparencia y compromiso para construir una sociedad mas justa, incluyente y solidaria.</p></article>
+          <article class="card" data-reveal><div class="icon"><i data-lucide="history"></i></div><h3>Historia de la institucion</h3><p>El DIF surgio oficialmente el 13 de enero de 1977 tras la fusion de instituciones orientadas a la infancia, la familia y la asistencia social en Mexico.</p></article>
+        </div>
+
+        <div class="values-grid" aria-label="Valores institucionales">
+          <div class="value" data-reveal>Libertad</div>
+          <div class="value" data-reveal>Igualdad</div>
+          <div class="value" data-reveal>Solidaridad</div>
+          <div class="value" data-reveal>Tolerancia</div>
+          <div class="value" data-reveal>Respeto</div>
+          <div class="value" data-reveal>Honestidad</div>
+          <div class="value" data-reveal>Legalidad</div>
+          <div class="value" data-reveal>Compromiso</div>
+        </div>
+
+        <div class="social-strip" data-reveal>
+          <a href="https://www.difchiapas.gob.mx/" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Sitio DIF Chiapas</a>
+          <a href="https://www.facebook.com/DIFChiapas" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> Facebook DIF Chiapas</a>
+          <a href="https://www.google.com/maps?q=14.91645,-92.26072" target="_blank" rel="noopener"><i data-lucide="map"></i> Abrir mapa</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>Proyecto profesiografico sobre la carrera de Nutricion y su impacto laboral en DIF Tapachula.</span>
+      <span>Wellness Futurista / Healthcare / Nature-Tech</span>
+    </div>
+  </footer>
+
+  <script>
+    const ambient = document.querySelector(".ambient");
+    for (let i = 0; i < 46; i++) {
+      const p = document.createElement("span");
+      p.className = "particle";
+      p.style.left = `${Math.random() * 100}%`;
+      p.style.top = `${Math.random() * 100}%`;
+      p.style.animationDelay = `${Math.random() * -9}s`;
+      p.style.animationDuration = `${7 + Math.random() * 8}s`;
+      p.style.transform = `scale(${0.55 + Math.random() * 1.45})`;
+      ambient.appendChild(p);
+    }
+
+    const glow = document.querySelector(".cursor-glow");
+    window.addEventListener("pointermove", (event) => {
+      glow.style.opacity = "1";
+      glow.style.left = `${event.clientX}px`;
+      glow.style.top = `${event.clientY}px`;
+    });
+    window.addEventListener("pointerleave", () => { glow.style.opacity = "0"; });
+
+    const progress = document.querySelector(".scroll-progress");
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = max > 0 ? window.scrollY / max : 0;
+      progress.style.transform = `scaleX(${Math.min(Math.max(ratio, 0), 1)})`;
+    };
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll("[data-reveal]").forEach((el) => revealObserver.observe(el));
+
+    const counters = document.querySelectorAll("[data-count]");
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.count);
+        const duration = target > 100 ? 1300 : 900;
+        const start = performance.now();
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased).toLocaleString("es-MX");
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        countObserver.unobserve(el);
+      });
+    }, { threshold: 0.55 });
+    counters.forEach((el) => countObserver.observe(el));
+
+    if (window.lucide) {
+      window.lucide.createIcons({ attrs: { width: 20, height: 20, strokeWidth: 1.8 } });
+    }
+  </script>
+</body>
+</html>
