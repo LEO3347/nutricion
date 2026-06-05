@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nutricion | Futuro de la salud y el bienestar</title>
-  <meta name="description" content="Experiencia digital premium para promocionar la carrera de Nutricion y su impacto en el DIF Tapachula.">
+  <title>nutrición | Futuro de la salud y el bienestar</title>
+  <meta name="description" content="Experiencia digital premium para promocionar la carrera de nutrición y su impacto en el DIF Tapachula.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -477,29 +477,37 @@
       animation-direction: reverse;
     }
 
-    .dna {
+    .food-plate {
       position: absolute;
-      width: 72%;
-      height: 72%;
+      width: 76%;
+      height: 76%;
       border-radius: 50%;
       z-index: 2;
       background:
-        radial-gradient(circle at 50% 8%, var(--emerald) 0 5px, transparent 6px),
-        radial-gradient(circle at 36% 22%, var(--wellness) 0 4px, transparent 5px),
-        radial-gradient(circle at 64% 22%, var(--mint) 0 4px, transparent 5px),
-        radial-gradient(circle at 28% 44%, var(--emerald) 0 5px, transparent 6px),
-        radial-gradient(circle at 72% 44%, var(--wellness) 0 5px, transparent 6px),
-        radial-gradient(circle at 38% 68%, var(--mint) 0 4px, transparent 5px),
-        radial-gradient(circle at 62% 68%, var(--emerald) 0 4px, transparent 5px),
-        radial-gradient(circle at 50% 88%, var(--wellness) 0 5px, transparent 6px);
-      filter: drop-shadow(0 0 12px rgba(110,231,183,0.5));
-      animation: rotate 22s linear infinite;
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.92) 0 18%, transparent 19%),
+        radial-gradient(circle at 52% 48%, rgba(255,255,255,0.42), transparent 52%);
+      filter: drop-shadow(0 0 18px rgba(110,231,183,0.46));
+      animation: hoverY 7.4s ease-in-out infinite;
     }
 
-    .dna svg {
+    .food-plate svg {
       width: 100%;
       height: 100%;
-      opacity: 0.7;
+      opacity: 0.94;
+      overflow: visible;
+    }
+
+    .food-plate text {
+      font-family: "Sora", sans-serif;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .food-dot {
+      filter: drop-shadow(0 8px 10px rgba(18,52,77,0.08));
+      transform-origin: center;
+      animation: pulseFood 3.6s ease-in-out infinite;
     }
 
     .hud {
@@ -1169,6 +1177,11 @@
       50% { transform: translateY(-14px); }
     }
 
+    @keyframes pulseFood {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
     @keyframes scanLine {
       0%, 100% { transform: translateX(-18%) translateY(6px); opacity: 0.55; }
       50% { transform: translateX(12%) translateY(-5px); opacity: 0.95; }
@@ -1241,7 +1254,7 @@
   <nav class="nav" aria-label="Navegacion principal">
     <a class="brand" href="#inicio" aria-label="Inicio">
       <span class="brand-mark"><i data-lucide="activity"></i></span>
-      <span>Nutricion BioWellness</span>
+      <span>nutrición BioWellness</span>
     </a>
     <div class="nav-links">
       <a href="#historia">Historia</a>
@@ -1259,48 +1272,74 @@
     <header class="hero">
       <div class="container hero-grid">
         <div data-reveal>
-          <p class="eyebrow"><i data-lucide="sparkles"></i> Healthcare design + nutricion aplicada</p>
-          <h1>El futuro de la <span class="gradient-text">salud</span> empieza con la nutricion.</h1>
-          <p class="hero-copy">Una carrera cientifica, humana y sostenible para transformar la calidad de vida desde hospitales, comunidades, investigacion, deporte, industria alimentaria e instituciones como el DIF Tapachula.</p>
+          <p class="eyebrow"><i data-lucide="sparkles"></i> Healthcare design + nutrición aplicada</p>
+          <h1>El futuro de la <span class="gradient-text">salud</span> empieza con la nutrición.</h1>
+          <p class="hero-copy">Una carrera científica, humana y sostenible para transformar la calidad de vida desde hospitales, comunidades, investigación, deporte, industria alimentaria e instituciónes como el DIF Tapachula.</p>
           <div class="bio-tags" aria-label="Temas principales">
             <span><i></i> Historia</span>
             <span><i></i> Perfil ingreso-egreso</span>
             <span><i></i> Oferta educativa</span>
             <span><i></i> Plan de estudios</span>
             <span><i></i> Campo laboral</span>
-            <span><i></i> Codigo etico</span>
+            <span><i></i> Codigo ético</span>
           </div>
           <div class="hero-actions">
             <a class="btn" href="#campo"><i data-lucide="briefcase-medical"></i> Ver impacto laboral</a>
-            <a class="btn secondary" href="#dif"><i data-lucide="map-pin"></i> Conocer institucion</a>
+            <a class="btn secondary" href="#dif"><i data-lucide="map-pin"></i> Conocer institución</a>
           </div>
           <div class="metric-row" aria-label="Metricas de la carrera">
-            <div class="metric"><strong data-count="9">0</strong><span>semestres de formacion academica integral</span></div>
-            <div class="metric"><strong data-count="7">0</strong><span>areas laborales clave para crecer</span></div>
-            <div class="metric"><strong data-count="2026">0</strong><span>periodo de investigacion en DIF Tapachula</span></div>
+            <div class="metric"><strong data-count="9">0</strong><span>semestres de formación académica integral</span></div>
+            <div class="metric"><strong data-count="7">0</strong><span>áreas laborales clave para crecer</span></div>
+            <div class="metric"><strong data-count="2026">0</strong><span>periodo de investigación en DIF Tapachula</span></div>
           </div>
         </div>
         <div class="bio-orb" data-reveal>
           <div class="orb-core">
-            <div class="dna">
-              <svg viewBox="0 0 400 400" fill="none" aria-hidden="true">
-                <path d="M200 34C112 82 112 144 200 200C288 256 288 318 200 366" stroke="url(#g1)" stroke-width="4" stroke-linecap="round"/>
-                <path d="M200 34C288 82 288 144 200 200C112 256 112 318 200 366" stroke="url(#g2)" stroke-width="4" stroke-linecap="round"/>
-                <path d="M151 75H249M132 129H268M148 249H252M132 303H268" stroke="rgba(18,52,77,.22)" stroke-width="3" stroke-linecap="round"/>
+            <div class="food-plate">
+              <svg viewBox="0 0 400 400" fill="none" role="img" aria-label="Plato del Buen Comer estilizado">
+                <circle cx="200" cy="200" r="166" fill="rgba(255,255,255,.58)" stroke="rgba(255,255,255,.82)" stroke-width="3"/>
+                <circle cx="200" cy="200" r="128" fill="rgba(255,255,255,.34)" stroke="rgba(18,52,77,.09)" stroke-width="1.5"/>
+                <path d="M200 200 L200 38 A162 162 0 0 1 354 250 Z" fill="url(#vegetales)"/>
+                <path d="M200 200 L354 250 A162 162 0 0 1 202 362 Z" fill="url(#cereales)"/>
+                <path d="M200 200 L202 362 A162 162 0 0 1 45 248 Z" fill="url(#leguminosas)"/>
+                <path d="M200 200 L45 248 A162 162 0 0 1 200 38 Z" fill="url(#frutas)"/>
+                <circle cx="200" cy="200" r="52" fill="rgba(248,250,247,.9)" stroke="rgba(14,124,102,.2)" stroke-width="2"/>
+                <path d="M200 38v324M45 248l309-98M47 246l307 4" stroke="rgba(255,255,255,.82)" stroke-width="5" stroke-linecap="round"/>
+                <path d="M200 38v324M45 248l309-98M47 246l307 4" stroke="rgba(18,52,77,.08)" stroke-width="1.4" stroke-linecap="round"/>
+                <circle class="food-dot" cx="270" cy="122" r="17" fill="#0E7C66"/>
+                <circle class="food-dot" cx="305" cy="172" r="13" fill="#6EE7B7" style="animation-delay:-.4s"/>
+                <path class="food-dot" d="M241 149c19-26 50-18 48 9-26 8-42 4-48-9Z" fill="#A7C4A0" style="animation-delay:-.8s"/>
+                <circle class="food-dot" cx="124" cy="133" r="16" fill="#3BA4F2" style="animation-delay:-1.1s"/>
+                <circle class="food-dot" cx="157" cy="98" r="12" fill="#6EE7B7" style="animation-delay:-1.5s"/>
+                <path class="food-dot" d="M103 181c13-18 35-16 42 0-12 18-31 18-42 0Z" fill="#0E7C66" style="animation-delay:-1.8s"/>
+                <rect class="food-dot" x="253" y="256" width="46" height="22" rx="8" fill="#EACB75" style="animation-delay:-.9s"/>
+                <rect class="food-dot" x="288" y="291" width="38" height="18" rx="8" fill="#D7B45E" style="animation-delay:-1.4s"/>
+                <circle class="food-dot" cx="225" cy="306" r="14" fill="#F1D98B" style="animation-delay:-1.9s"/>
+                <circle class="food-dot" cx="126" cy="278" r="15" fill="#9B6A45" style="animation-delay:-.6s"/>
+                <circle class="food-dot" cx="160" cy="306" r="13" fill="#7A4F32" style="animation-delay:-1.2s"/>
+                <path class="food-dot" d="M105 321c21-18 47-12 55 13-25 8-44 2-55-13Z" fill="#A8673F" style="animation-delay:-1.7s"/>
+                <text x="248" y="84" fill="#12344D" font-size="13">Verduras</text>
+                <text x="83" y="79" fill="#12344D" font-size="13">Frutas</text>
+                <text x="253" y="348" fill="#12344D" font-size="12">Cereales</text>
+                <text x="52" y="352" fill="#12344D" font-size="11">Leguminosas</text>
+                <text x="169" y="194" fill="#0E7C66" font-size="12">Buen</text>
+                <text x="159" y="211" fill="#12344D" font-size="12">Comer</text>
                 <defs>
-                  <linearGradient id="g1" x1="104" y1="60" x2="293" y2="350"><stop stop-color="#0E7C66"/><stop offset="1" stop-color="#3BA4F2"/></linearGradient>
-                  <linearGradient id="g2" x1="294" y1="60" x2="107" y2="350"><stop stop-color="#6EE7B7"/><stop offset="1" stop-color="#0E7C66"/></linearGradient>
+                  <linearGradient id="vegetales" x1="203" y1="38" x2="354" y2="250"><stop stop-color="#6EE7B7"/><stop offset="1" stop-color="#0E7C66"/></linearGradient>
+                  <linearGradient id="frutas" x1="45" y1="248" x2="200" y2="38"><stop stop-color="#A7C4A0"/><stop offset="1" stop-color="#3BA4F2"/></linearGradient>
+                  <linearGradient id="cereales" x1="202" y1="362" x2="354" y2="250"><stop stop-color="#F1D98B"/><stop offset="1" stop-color="#6EE7B7"/></linearGradient>
+                  <linearGradient id="leguminosas" x1="45" y1="248" x2="202" y2="362"><stop stop-color="#A8673F"/><stop offset="1" stop-color="#0E7C66"/></linearGradient>
                 </defs>
               </svg>
             </div>
           </div>
           <div class="hud a"><small>metabolismo</small><strong>98%</strong><span class="bar" style="width:98%"></span></div>
-          <div class="hud b"><small>prevencion</small><strong>Salud+</strong><span class="bar" style="width:76%"></span></div>
+          <div class="hud b"><small>prevención</small><strong>Salud+</strong><span class="bar" style="width:76%"></span></div>
           <div class="hud c"><small>impacto social</small><strong>DIF</strong><span class="bar" style="width:88%"></span></div>
           <div class="lab-panel" aria-hidden="true">
             <h3>BioScan <i data-lucide="radar"></i></h3>
             <div class="micro-chart"></div>
-            <div class="lab-row"><span>energia</span><strong>alta</strong></div>
+            <div class="lab-row"><span>energía</span><strong>alta</strong></div>
             <div class="lab-row"><span>bienestar</span><strong>activo</strong></div>
           </div>
         </div>
@@ -1314,7 +1353,7 @@
             <p class="section-kicker">Contenido obligatorio</p>
             <h2>Todo lo que debe llevar el proyecto.</h2>
           </div>
-          <p class="lead">La pagina esta organizada para promocionar la carrera de Nutricion y presentar la institucion visitada, no para promocionar el documento.</p>
+          <p class="lead">La pagina esta organizada para promocionar la carrera de nutrición y presentar la institución visitada, no para promocionar el documento.</p>
         </div>
         <div class="requirement-matrix" data-reveal>
           <article class="requirement-block">
@@ -1332,16 +1371,16 @@
             </ul>
           </article>
           <article class="requirement-block">
-            <h3><i data-lucide="building-2"></i> Empresa o institucion</h3>
+            <h3><i data-lucide="building-2"></i> Empresa o institución</h3>
             <ul class="requirement-list">
-              <li>Ubicacion con mapa</li>
-              <li>Fotografia</li>
+              <li>ubicación con mapa</li>
+              <li>fotografía</li>
               <li>Filosofia empresarial</li>
-              <li>Mision</li>
-              <li>Vision</li>
+              <li>misión</li>
+              <li>visión</li>
               <li>Valores</li>
               <li>Historia</li>
-              <li>Pagina web</li>
+              <li>página web</li>
               <li>Redes sociales</li>
             </ul>
           </article>
@@ -1353,21 +1392,21 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <div>
-            <p class="section-kicker">Historia de la nutricion</p>
+            <p class="section-kicker">Historia de la nutrición</p>
             <h2>De la dieta como cuidado al bienestar basado en ciencia.</h2>
           </div>
-          <p class="lead">La nutricion evoluciono desde la observacion antigua de la alimentacion como medicina hasta una profesion esencial para prevenir enfermedades, mejorar habitos y elevar la calidad de vida.</p>
+          <p class="lead">La nutrición evolucionó desde la observación antigua de la alimentación como medicina hasta una profesión esencial para prevenir enfermedades, mejorar hábitos y elevar la calidad de vida.</p>
         </div>
         <div class="story-grid">
           <article class="panel" data-reveal>
-            <h3>Una disciplina con raiz humana</h3>
-            <p>Desde civilizaciones griegas y romanas ya se reconocia la relacion entre alimentos y salud. Con los descubrimientos de los siglos XVIII y XIX sobre proteinas, grasas, carbohidratos, vitaminas y minerales, la nutricion empezo a explicar como el cuerpo obtiene energia, crece y se mantiene sano.</p>
+            <h3>Una disciplina con raíz humana</h3>
+            <p>Desde civilizaciones griegas y romanas ya se reconocia la relacion entre alimentos y salud. Con los descubrimientos de los siglos XVIII y XIX sobre proteinas, grasas, carbohidratos, vitaminas y minerales, la nutrición empezo a explicar como el cuerpo obtiene energía, crece y se mantiene sano.</p>
           </article>
           <div class="timeline" data-reveal>
-            <div class="time-item"><strong>Antiguedad</strong><p>La dieta se entiende como parte del equilibrio corporal y la prevencion.</p></div>
+            <div class="time-item"><strong>Antigüedad</strong><p>La dieta se entiende como parte del equilibrio corporal y la prevención.</p></div>
             <div class="time-item"><strong>Siglos XVIII-XIX</strong><p>La ciencia identifica nutrientes y procesos del cuerpo humano.</p></div>
-            <div class="time-item"><strong>Siglo XX</strong><p>La nutricion se consolida como ciencia y carrera profesional universitaria.</p></div>
-            <div class="time-item"><strong>Mexico actual</strong><p>El nutriologo responde a retos de obesidad, diabetes, desnutricion y salud publica.</p></div>
+            <div class="time-item"><strong>Siglo XX</strong><p>La nutrición se consolida como ciencia y carrera profesiónal universitaria.</p></div>
+            <div class="time-item"><strong>Mexico actual</strong><p>El nutriologo responde a retos de obesidad, diabetes, desnutrición y salud pública.</p></div>
           </div>
         </div>
       </div>
@@ -1378,36 +1417,36 @@
         <div class="section-head" data-reveal>
           <div>
             <p class="section-kicker">Perfil de ingreso y egreso</p>
-            <h2>Mente cientifica, vocacion humana.</h2>
+            <h2>Mente cientifica, vocación humana.</h2>
           </div>
-          <p class="lead">La carrera combina biologia, quimica, analisis, educacion en salud, empatia y trabajo con personas reales en contextos clinicos y comunitarios.</p>
+          <p class="lead">La carrera combina biología, química, análisis, educación en salud, empatía y trabajo con personas reales en contextos clinicos y comunitarios.</p>
         </div>
         <div class="profile-grid">
           <article class="card" data-reveal>
             <div class="icon"><i data-lucide="microscope"></i></div>
             <h3>Perfil de ingreso</h3>
             <ul>
-              <li>Interes por salud, alimentacion y bienestar.</li>
-              <li>Gusto por biologia, quimica y ciencias naturales.</li>
-              <li>Responsabilidad, disciplina y capacidad de analisis.</li>
+              <li>Interes por salud, alimentación y bienestar.</li>
+              <li>Gusto por biología, química y ciencias naturales.</li>
+              <li>Responsabilidad, disciplina y capacidad de análisis.</li>
             </ul>
           </article>
           <article class="card" data-reveal>
             <div class="icon"><i data-lucide="heart-handshake"></i></div>
             <h3>Cualidades humanas</h3>
             <ul>
-              <li>Empatia para acompanar procesos de cambio.</li>
-              <li>Trabajo en equipo y comunicacion clara.</li>
-              <li>Disposicion para aprender con avances cientificos.</li>
+              <li>empatía para acompanar procesos de cambio.</li>
+              <li>Trabajo en equipo y comunicación clara.</li>
+              <li>disposición para aprender con avances cientificos.</li>
             </ul>
           </article>
           <article class="card" data-reveal>
             <div class="icon"><i data-lucide="clipboard-check"></i></div>
             <h3>Perfil de egreso</h3>
             <ul>
-              <li>Evalua el estado nutricional de las personas.</li>
-              <li>Elabora planes de alimentacion adecuados.</li>
-              <li>Promueve prevencion, educacion y calidad de vida.</li>
+              <li>Evaluá el estado nutriciónal de las personas.</li>
+              <li>Elabora planes de alimentación adecuados.</li>
+              <li>Promueve prevención, educación y calidad de vida.</li>
             </ul>
           </article>
         </div>
@@ -1421,13 +1460,13 @@
             <p class="section-kicker">Oferta educativa</p>
             <h2>Opciones locales, estatales e internacionales.</h2>
           </div>
-          <p class="lead">La nutricion puede estudiarse en instituciones publicas y privadas, con enfoques clinicos, comunitarios, deportivos, empresariales y de investigacion.</p>
+          <p class="lead">La nutrición puede estudiarse en instituciónes públicas y privadas, con enfoques clinicos, comunitarios, deportivos, empresariales y de investigacion.</p>
         </div>
         <div class="offer-grid">
           <article class="card" data-reveal>
             <div class="icon"><i data-lucide="building-2"></i></div>
             <h3>Nivel local</h3>
-            <p>En Tapachula y la region Soconusco, el estudiante puede iniciar su orientacion vocacional, comparar opciones cercanas, costos, requisitos y practicas vinculadas al sector salud.</p>
+            <p>En Tapachula y la región Soconusco, el estudiante puede iniciar su orientacion vocacional, comparar opciones cercanas, costos, requisitos y practicas vinculadas al sector salud.</p>
           </article>
           <article class="card" data-reveal>
             <div class="icon"><i data-lucide="landmark"></i></div>
@@ -1437,7 +1476,7 @@
           <article class="card" data-reveal>
             <div class="icon"><i data-lucide="globe-2"></i></div>
             <h3>Nivel internacional</h3>
-            <p>El campo se conecta con universidades, certificaciones, nutricion deportiva, biotecnologia alimentaria y salud publica global para ampliar oportunidades profesionales.</p>
+            <p>El campo se conecta con universidades, certificaciones, nutrición deportiva, biotecnología alimentaria y salud pública global para ampliar oportunidades profesiónales.</p>
           </article>
         </div>
       </div>
@@ -1450,19 +1489,19 @@
             <p class="section-kicker">Plan de estudios</p>
             <h2>Dashboard academico modular.</h2>
           </div>
-          <p class="lead">Nueve semestres organizados como una ruta progresiva: fundamentos biologicos, evaluacion nutricia, dietoterapia, investigacion, innovacion alimentaria y servicio social.</p>
+          <p class="lead">Nueve semestres organizados como una ruta progresiva: fundamentos biologicos, evaluación nutricia, dietoterapia, investigacion, innovacion alimentaria y servicio social.</p>
         </div>
         <div class="plan-shell" data-reveal>
           <div class="semester-grid">
-            <article class="semester"><b>01</b><h3>Fundamentos</h3><ul><li>Comunicacion oral y escrita I</li><li>Estadistica</li><li>Higiene y salud</li><li>Microbiologia general</li><li>Morfologia y fisiologia general</li><li>Nutricion y dietetica basica</li></ul></article>
-            <article class="semester"><b>02</b><h3>Bioquimica base</h3><ul><li>Bases moleculares</li><li>Estadistica aplicada a alimentacion</li><li>Fisiologia aplicada a nutricion</li><li>Pedagogia y didactica</li><li>Salud publica</li><li>Tecnicas culinarias</li></ul></article>
-            <article class="semester"><b>03</b><h3>Alimentos y ciclo de vida</h3><ul><li>Bioquimica de los alimentos</li><li>Educacion en nutricion</li><li>Epidemiologia</li><li>Microbiologia de alimentos</li><li>Materno infantil</li><li>Preescolar a adulto mayor</li></ul></article>
-            <article class="semester"><b>04</b><h3>Evaluacion clinica</h3><ul><li>Administracion de alimentos</li><li>Analisis de alimentos</li><li>Dietologia</li><li>Evaluacion nutricia</li><li>Composicion corporal</li><li>Farmacologia en nutricion</li></ul></article>
-            <article class="semester"><b>05</b><h3>Comunidad e investigacion</h3><ul><li>Metodologia de investigacion</li><li>Diagnostico comunitario</li><li>Dietoterapia digestiva</li><li>Educacion nutriologica</li><li>Produccion animal y vegetal</li><li>Psicopatologia</li></ul></article>
+            <article class="semester"><b>01</b><h3>Fundamentos</h3><ul><li>comunicación oral y escrita I</li><li>Estadistica</li><li>Higiene y salud</li><li>Microbiología general</li><li>Morfologia y fisiologia general</li><li>nutrición y dietetica basica</li></ul></article>
+            <article class="semester"><b>02</b><h3>Bioquímica base</h3><ul><li>Bases moleculares</li><li>Estadistica aplicada a alimentación</li><li>Fisiologia aplicada a nutrición</li><li>Pedagogia y didactica</li><li>Salud pública</li><li>Tecnicas culinarias</li></ul></article>
+            <article class="semester"><b>03</b><h3>Alimentos y ciclo de vida</h3><ul><li>Bioquímica de los alimentos</li><li>educación en nutrición</li><li>Epidemiologia</li><li>Microbiología de alimentos</li><li>Materno infantil</li><li>Preescolar a adulto mayor</li></ul></article>
+            <article class="semester"><b>04</b><h3>evaluación clinica</h3><ul><li>Administracion de alimentos</li><li>análisis de alimentos</li><li>Dietologia</li><li>evaluácion nutricia</li><li>Composicion corporal</li><li>Farmacologia en nutrición</li></ul></article>
+            <article class="semester"><b>05</b><h3>Comunidad e investigacion</h3><ul><li>Metodologia de investigacion</li><li>Diagnostico comunitario</li><li>Dietoterapia digestiva</li><li>educación nutriologica</li><li>Produccion animal y vegetal</li><li>Psicopatologia</li></ul></article>
             <article class="semester"><b>06</b><h3>Sistemas metabolicos</h3><ul><li>Bioquimico clinico</li><li>Dietoterapia cardiovascular, renal y endocrina</li><li>Diseno de proyectos</li><li>Sindrome metabolico</li><li>Tecnologia de alimentos</li><li>Toxicologia</li></ul></article>
-            <article class="semester"><b>07</b><h3>Innovacion profesional</h3><ul><li>Evaluacion de programas nutricios</li><li>Innovacion de productos nutritivos</li><li>Nutricion aplicada</li><li>Paciente en fase critica</li><li>Salud y legislacion</li><li>Sociedad, economia y cultura de Chiapas</li></ul></article>
-            <article class="semester"><b>08</b><h3>Servicio social</h3><ul><li>Seminario de estadistica</li><li>Seminario de servicio social</li><li>Asesoria tutorada para titulacion</li><li>Aplicacion profesional en campo</li></ul></article>
-            <article class="semester"><b>09</b><h3>Titulacion</h3><ul><li>Investigacion para titulacion</li><li>Redaccion del documento recepcional</li><li>Integracion de servicio social</li><li>Cierre academico profesional</li></ul></article>
+            <article class="semester"><b>07</b><h3>Innovacion profesiónal</h3><ul><li>evaluación de programas nutricios</li><li>Innovacion de productos nutritivos</li><li>nutrición aplicada</li><li>Paciente en fase critica</li><li>Salud y legislacion</li><li>Sociedad, economia y cultura de Chiapas</li></ul></article>
+            <article class="semester"><b>08</b><h3>Servicio social</h3><ul><li>Seminario de estadistica</li><li>Seminario de servicio social</li><li>Asesoria tutorada para titulacion</li><li>Aplicacion profesiónal en campo</li></ul></article>
+            <article class="semester"><b>09</b><h3>Titulacion</h3><ul><li>Investigacion para titulacion</li><li>Redaccion del documento recepcional</li><li>Integracion de servicio social</li><li>Cierre academico profesiónal</li></ul></article>
           </div>
         </div>
       </div>
@@ -1475,17 +1514,17 @@
             <p class="section-kicker">Campo laboral</p>
             <h2>Impacto real en salud, comunidad e industria.</h2>
           </div>
-          <p class="lead">En Tapachula y Chiapas, el nutriologo responde a desnutricion, obesidad, diabetes, hipertension e inseguridad alimentaria desde multiples frentes.</p>
+          <p class="lead">En Tapachula y Chiapas, el nutriologo responde a desnutrición, obesidad, diabetes, hipertension e inseguridad alimentaria desde multiples frentes.</p>
         </div>
         <div class="labor-grid">
-          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="hospital"></i></div><div><h3>Hospitales</h3><p>Diagnostico nutricional, dietoterapia y soporte nutricio en instituciones de salud.</p></div></article>
-          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="shield-plus"></i></div><div><h3>Salud publica</h3><p>Campanas comunitarias para prevenir desnutricion, obesidad y enfermedades cronicas.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="hospital"></i></div><div><h3>Hospitales</h3><p>Diagnostico nutriciónal, dietoterapia y soporte nutricio en instituciónes de salud.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="shield-plus"></i></div><div><h3>Salud pública</h3><p>Campanas comunitarias para prevenir desnutrición, obesidad y enfermedades cronicas.</p></div></article>
           <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="hand-heart"></i></div><div><h3>DIF</h3><p>Programas de asistencia alimentaria, desayunos escolares y atencion a grupos vulnerables.</p></div></article>
-          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="flask-conical"></i></div><div><h3>Investigacion</h3><p>Generacion de datos sobre alimentacion, salud publica y habitos nutricionales.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="flask-conical"></i></div><div><h3>Investigacion</h3><p>Generacion de datos sobre alimentación, salud pública y hábitos nutriciónales.</p></div></article>
           <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="factory"></i></div><div><h3>Industria alimentaria</h3><p>Desarrollo de productos, etiquetado nutrimental, composicion y control de calidad.</p></div></article>
-          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="dumbbell"></i></div><div><h3>Nutricion deportiva</h3><p>Planes alimentarios para rendimiento, recuperacion y composicion corporal saludable.</p></div></article>
-          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="graduation-cap"></i></div><div><h3>Educacion</h3><p>Docencia, talleres, orientacion nutricional y formacion de nuevas generaciones.</p></div></article>
-          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="utensils"></i></div><div><h3>Servicios de alimentos</h3><p>Supervision de higiene, calidad y menus equilibrados en comedores y albergues.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="dumbbell"></i></div><div><h3>nutrición deportiva</h3><p>Planes alimentarios para rendimiento, recuperacion y composicion corporal saludable.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="graduation-cap"></i></div><div><h3>educación</h3><p>Docencia, talleres, orientacion nutriciónal y formacion de nuevas generaciones.</p></div></article>
+          <article class="card labor-card" data-reveal><div class="icon"><i data-lucide="utensils"></i></div><div><h3>Servicios de alimentos</h3><p>Supervisión de higiene, calidad y menus equilibrados en comedores y albergues.</p></div></article>
         </div>
       </div>
     </section>
@@ -1497,13 +1536,13 @@
             <p class="section-kicker">Codigo etico</p>
             <h2>Ciencia con confianza y dignidad.</h2>
           </div>
-          <p class="lead">El ejercicio profesional exige evidencia, equidad, transparencia y respeto por la cultura alimentaria de cada comunidad.</p>
+          <p class="lead">El ejercicio profesiónal exige evidencia, equidad, transparencia y respeto por la cultura alimentaria de cada comunidad.</p>
         </div>
         <div class="ethics-band">
           <article class="ethic" data-reveal><div class="icon"><i data-lucide="badge-check"></i></div><h3>Evidencia cientifica</h3><p>Programas y recomendaciones basados en ciencia, no en modas o intereses personales.</p></article>
           <article class="ethic" data-reveal><div class="icon"><i data-lucide="scale"></i></div><h3>Justicia y equidad</h3><p>Distribucion imparcial de recursos para quienes mas los necesitan.</p></article>
           <article class="ethic" data-reveal><div class="icon"><i data-lucide="users-round"></i></div><h3>Respeto cultural</h3><p>Orientacion que escucha preferencias, tradiciones y decisiones informadas.</p></article>
-          <article class="ethic" data-reveal><div class="icon"><i data-lucide="eye"></i></div><h3>Transparencia</h3><p>Evitar conflictos de interes que comprometan la salud publica.</p></article>
+          <article class="ethic" data-reveal><div class="icon"><i data-lucide="eye"></i></div><h3>Transparencia</h3><p>Evitar conflictos de interes que comprometan la salud pública.</p></article>
         </div>
       </div>
     </section>
@@ -1512,14 +1551,14 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <div>
-            <p class="section-kicker">Empresa o institucion</p>
+            <p class="section-kicker">Empresa o institución</p>
             <h2>DIF Municipal Tapachula.</h2>
           </div>
-          <p class="lead">La investigacion se enfoca en el Sistema para el Desarrollo Integral de la Familia, una institucion de asistencia social donde la nutricion tiene impacto directo en ninas, ninos, personas mayores, personas con discapacidad y familias vulnerables.</p>
+          <p class="lead">La investigacion se enfoca en el Sistema para el Desarrollo Integral de la Familia, una institución de asistencia social donde la nutrición tiene impacto directo en ninas, ninos, personas mayores, personas con discapacidad y familias vulnerables.</p>
         </div>
         <div class="institution-grid">
           <article class="panel map-panel" data-reveal>
-            <img src="assets/pdf-page-45-1.jpg" alt="Mapa de ubicacion del DIF Municipal Tapachula">
+            <img src="assets/pdf-page-45-1.jpg" alt="Mapa de ubicación del DIF Municipal Tapachula">
             <div class="map-overlay">
               <strong>Sexta Avenida Norte y 19 Calle Poniente S/N</strong>
               <span>Colonia Los Naranjos, sector Centro, C.P. 30700, Tapachula de Cordova y Ordonez, Chiapas. Coordenadas aproximadas: 14.91645, -92.26072.</span>
@@ -1528,37 +1567,37 @@
           <div class="photo-stack" data-reveal>
             <figure class="photo-card">
               <img src="assets/pdf-page-65-1.jpg" alt="Estudiantes en instalaciones del DIF Tapachula">
-              <figcaption>Fotografia de visita de campo a instalaciones del DIF, incluida en los anexos del documento.</figcaption>
+              <figcaption>fotografía de visita de campo a instalaciones del DIF, incluida en los anexos del documento.</figcaption>
             </figure>
             <figure class="photo-card">
-              <img src="assets/pdf-page-65-2.jpg" alt="Entrevista con personal del area de nutricion">
-              <figcaption>Entrevista al personal del area de nutricion para conocer funciones y experiencia profesional.</figcaption>
+              <img src="assets/pdf-page-65-2.jpg" alt="Entrevista con personal del area de nutrición">
+              <figcaption>Entrevista al personal del area de nutrición para conocer funciones y experiencia profesiónal.</figcaption>
             </figure>
           </div>
         </div>
 
         <div class="experience-strip" data-reveal>
-          <div><span>Ubicacion</span><strong>Tapachula</strong></div>
+          <div><span>ubicación</span><strong>Tapachula</strong></div>
           <div><span>Mapa</span><strong>Incluido</strong></div>
-          <div><span>Fotografia</span><strong>Visita DIF</strong></div>
+          <div><span>fotografía</span><strong>Visita DIF</strong></div>
           <div><span>Web y redes</span><strong>Activas</strong></div>
         </div>
 
         <div class="section-head" style="margin-top:64px" data-reveal>
           <div>
             <p class="section-kicker">Filosofia empresarial</p>
-            <h2>Mision, vision, valores e historia institucional.</h2>
+            <h2>misión, visión, valores e historia instituciónal.</h2>
           </div>
           <p class="lead">El DIF orienta su labor hacia la asistencia social, la proteccion de derechos y el desarrollo integral de familias en situacion de vulnerabilidad.</p>
         </div>
 
         <div class="philosophy-grid">
-          <article class="card" data-reveal><div class="icon"><i data-lucide="target"></i></div><h3>Mision</h3><p>Conducir politicas publicas de asistencia social, protegiendo derechos de ninas, ninos, adolescentes, personas adultas mayores, personas con discapacidad y familias vulnerables.</p></article>
-          <article class="card" data-reveal><div class="icon"><i data-lucide="telescope"></i></div><h3>Vision</h3><p>Ser un organismo rector reconocido por eficacia, transparencia y compromiso para construir una sociedad mas justa, incluyente y solidaria.</p></article>
-          <article class="card" data-reveal><div class="icon"><i data-lucide="history"></i></div><h3>Historia de la institucion</h3><p>El DIF surgio oficialmente el 13 de enero de 1977 tras la fusion de instituciones orientadas a la infancia, la familia y la asistencia social en Mexico.</p></article>
+          <article class="card" data-reveal><div class="icon"><i data-lucide="target"></i></div><h3>misión</h3><p>Conducir politicas públicas de asistencia social, protegiendo derechos de ninas, ninos, adolescentes, personas adultas mayores, personas con discapacidad y familias vulnerables.</p></article>
+          <article class="card" data-reveal><div class="icon"><i data-lucide="telescope"></i></div><h3>visión</h3><p>Ser un organismo rector reconocido por eficacia, transparencia y compromiso para construir una sociedad mas justa, incluyente y solidaria.</p></article>
+          <article class="card" data-reveal><div class="icon"><i data-lucide="history"></i></div><h3>Historia de la institución</h3><p>El DIF surgio oficialmente el 13 de enero de 1977 tras la fusion de instituciónes orientadas a la infancia, la familia y la asistencia social en Mexico.</p></article>
         </div>
 
-        <div class="values-grid" aria-label="Valores institucionales">
+        <div class="values-grid" aria-label="Valores instituciónales">
           <div class="value" data-reveal>Libertad</div>
           <div class="value" data-reveal>Igualdad</div>
           <div class="value" data-reveal>Solidaridad</div>
@@ -1580,7 +1619,7 @@
 
   <footer class="footer">
     <div class="container">
-      <span>Proyecto profesiografico sobre la carrera de Nutricion y su impacto laboral en DIF Tapachula.</span>
+      <span>Proyecto profesiografico sobre la carrera de nutrición y su impacto laboral en DIF Tapachula.</span>
       <span>Wellness Futurista / Healthcare / Nature-Tech</span>
     </div>
   </footer>
